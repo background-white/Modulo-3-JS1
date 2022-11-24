@@ -13,7 +13,7 @@ let pokemons = [
 ]
 
 //1. Ordernar los pokemons por base_damage de menor a mayor.
-/*
+/*  
 pokemons.sort((a,b)=>{
   if (a.base_damage<b.base_damage){
     return 1;
@@ -102,3 +102,18 @@ function setDamage(index){
 */
 //8. Nuestro Pokemon Master quiere estar preparado para pelear, para ello necesita que lo apoyes a ordenar sus pokemons. El quiere que sus pokemons se ordenen de manera
 // que el que tenga un mayor valor posible de base_damage + max_damage sea el que este primero en la lista y asi sucesivamente.
+
+//9. Crear una lista desordenada de Pokemons en nuestro documento HTML
+
+const root = document.getElementById("root");
+const ul = document.createElement("ul");
+root.append(ul);
+
+for(const prop in pokemons[0]){
+  const li=document.createElement("li");
+  li.textContent = prop;
+  li.addEventListener("click",()=>{
+    sortPokemons(prop);
+  })
+  ul.append(li);
+}
